@@ -6,24 +6,25 @@ import Resultados from './components/Resultados';
 
 
 class App extends Component {
-
-    constructor(){
-        super();
-        console.log("constructor");
-        this.getCountriesAll();
-    }
-
-    state = {
-        region: "",
-        countries: [],
-        showDetails: false,
-        selectedCountry: null,
-        theme: ""
-    }
-
+    
     filterCountriesTmp = [];
     isFilter = false;
 
+    constructor(props){
+        super(props);
+        this.state =  {
+            region: "",
+            countries: [],
+            showDetails: false,
+            selectedCountry: null,
+            theme: ""
+        }
+    }
+
+    componentDidMount(){
+        this.getCountriesAll();
+    }
+    
     filterCountries = (value) => {
         
         if(value === ""){
@@ -51,11 +52,9 @@ class App extends Component {
 
     changeSelection = (value)=> {
         this.setState({ region: value}, () => this.getCountriesByRegion());
-        console.log(value);
     }
 
     getCountriesAll = () => {
-        console.log("get countries");
         const url = "https://restcountries.eu/rest/v2/all";
 
         fetch(url).then(response => response.json()).then(data => this.setState({ countries: data }) );

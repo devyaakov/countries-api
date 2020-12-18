@@ -13,20 +13,21 @@ html, body {
 }
 #root{
     position: relative;
+    min-height: 100%;
+    background-color: #fafafa;
+    color: #000;
+}
+.dark #root{
+    color: #FFF;
+    background-color: #202d36;
 }
 .App {
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: #fafafa;
-    color: #000;
+    
 
 }
-.dark .App{
-    color: #FFF;
-    background-color: #202d36;
-}
-
 header{
     position: relative;
     height: 5.7rem;

@@ -5,6 +5,7 @@ class CountryDetails extends Component{
     back = ()=>{
         this.props.closeDetails();
     }
+
     render(){
         
         const {topLevelDomain, population, region, subregion, capital, nativeName, currencies, languages, flag, name, borders} = this.props.country;
@@ -32,7 +33,7 @@ class CountryDetails extends Component{
                                 <p className="row languages">{languages.map(la => la.name).join()}</p>
                             </div>
                         </div>
-                        <div className="border-countries">{borders.map(bo => ( <div className="borders">{bo}</div>) )}</div>
+                        <div className="border-countries">{borders.map(bo => ( <div key={bo} className="borders">{bo}</div>) )}</div>
                     </div>
                 </div>
             </div>
